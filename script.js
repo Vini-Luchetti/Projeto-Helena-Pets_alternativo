@@ -141,7 +141,7 @@ function gerarFeitico() {
         `Gere a imagem de ${base} na cor ${cor}, com o poder de ${poder} e usando ${acessorio}. ` +
         `Estilo 'creepy-cute' (assustador mas fofo, vibe Tim Burton). ` +
         `O bicho deve parecer radical, perigoso ou monstruoso, mas ter uma expressão levemente carismática ou doce. ` +
-        `Fundo escuro e misterioso.`;
+        `Fundo escuro, mistico, medieval e misterioso.`;
 
     // Texto curto e assustador para a Helena ver na tela
     const textoHelena = `Invocando ${base} de cor ${cor} que pode ${poder}...`;

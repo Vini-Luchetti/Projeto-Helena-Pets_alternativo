@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção | Clube do Corvo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">
+            <h1>Clube do Corvo</h1>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="menu" id="nav-menu">
+            <a href="home.html">Adoção</a>
+            <a href="caldeirao.html">O Caldeirão</a>
+            <a href="contato.html">Contato Sombrio</a>
+            <a href="video.html">Cinemateca do Corvo</a>
+            <button class="btn-login" id="botaoNome" onclick="abrirModal('modalLogin')">Entrar</button>
+            <div class="saldo-container">
+                <span id="saldoPenas">💎 20</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== vídeo 1 ===== -->
+    <main>
+        <div class="video-grid">
+    <!-- Vídeo 1 -->
+    <div class="video-item">
+        <video controls playsinline poster="img/capa1.png">
+            <source src="anima/amigas.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="video-info">
+            <h3>Papo de amigas</h3>
+        </div>
+    </div>
+    <!-- Vídeo 2 -->
+    <div class="video-item">
+        <video controls playsinline poster="img/capa2.png">
+            <source src="anima/thekey.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="video-info">
+            <h3>O mistério da chave dourada</h3>
+        </div>
+    </div>
+    <!-- Vídeo 3 -->
+    <div class="video-item">
+        <video controls playsinline loop poster="img/capa3.png">
+            <source src="anima/kokiltus.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos.
+        </video>
+        <div class="video-info">
+            <h3>A caminhada de Kokiltus</h3>
+        </div>
+    </div>
+</div>
+    </main>
+
+        <!-- ===== MODAL: LOGIN ===== -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <h2>Acesso Secreto</h2>
+            <p>Apenas para guardiões de pets.</p>
+            <input type="text" id="inputNome" placeholder="Nome de Guardião">
+            <input type="password" id="inputSenha" placeholder="Senha Mágica">
+            <button class="btn-comprar" onclick="fazerLogin()">Acessar Portal</button>
+            <br><br>
+            <button class="btn-login" onclick="fecharModais()">Cancelar</button>
+        </div>
+    </div>
+
+        <!-- ===== MODAL: RECARGA DE PENAS ===== -->
+    <div id="modalRecarga" class="modal">
+        <div class="modal-content">
+            <h2>O Baú do Corvo</h2>
+            <p>Suas Penas de Cristal acabaram!</p>
+            <div id="bauMagico" onclick="realizarRecarga()" style="font-size:5rem; cursor:pointer; transition: transform 0.2s;">🎁</div>
+            <p>Clique no baú para recarregar.</p>
+            <br>
+            <button class="btn-login" onclick="fecharModais()">Sair</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
