@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Caldeirão | Clube do Corvo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">
+            <h1>Clube do Corvo</h1>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="menu" id="nav-menu">
+            <a href="home.html">Adoção</a>
+            <a href="caldeirao.html">O Caldeirão</a>
+            <a href="contato.html">Contato Sombrio</a>
+            <a href="video.html">Cinemateca do Corvo</a>
+            <button class="btn-login" id="botaoNome" onclick="abrirModal('modalLogin')">Entrar</button>
+            <div class="saldo-container">
+                <span id="saldoPenas">💎 20</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== CALDEIRÃO ===== -->
+    <main class="caldeirao-container">
+
+        <h2>🧪 Alquimia de Pets</h2>
+        <p>Escolha os ingredientes para invocar uma nova criatura!</p>
+
+        <div class="ingredientes">
+
+            <label for="base">Criatura Base (O Monstrinho):</label>
+            <select id="base">
+                <option value="uma Aranha Caranguejeira gordinha">Aranha das Sombras</option>
+                <option value="um Mini-Demogorgon">Filhote de Demogorgon</option>
+                <option value="um Escorpião Rei">Escorpião Cascudo</option>
+                <option value="um Besouro Rinoceronte brabo">Besouro Blindado</option>
+                <option value="um Morcego Vampiro">Morcego Dentuço</option>
+                <option value="uma Serpente Caninana chicoteadora e veloz">Cobra Caninana</option>
+                <option value="um Sapo Cururu das Sombras com pele de couro e aura de boitatá">Sapo Boitatá</option>
+                <option value="uma Lacraia gigante com patas de agulha">Lacraia Blindada</option>
+                <option value="uma Formiga de fogo com mandíbulas de aço">Formiga Atômica</option>
+                <option value="uma Lagartixa das paredes esquecidas">Lagartixa Camaleônica</option>
+                <option value="uma Lagarta de fogo com pelos que brilham">Lagarta Peluda Real</option>
+                <option value="uma Centopeia ancestral das cavernas">Centopeia Dracônica</option>
+                <option value="uma Salamandra que vive no fogo azul">Salamandra de Éter</option>
+            </select>
+
+            <label for="cor">Cor da Mutação:</label>
+            <select id="cor">
+                <option value="Preto Fosco com detalhes em Roxo Neon">Preto Abissal & Neon</option>
+                <option value="Verde Ácido Tóxico">Verde Tóxico</option>
+                <option value="Vermelho Carmesim Escuro">Vermelho Sangue</option>
+                <option value="Cinza Metálico com Olhos Brilhantes">Metal Assombrado</option>
+                <option value="Verde Água Metálico">Reflexo de Mercúrio Venenoso</option>
+                <option value="Rosa Choque Elétrico">Pink Neon de Alta Voltagem</option>
+                <option value="Dourado com Aura Sombria">Ouro Envelhecido Sombrio</option>
+                <option value="Azul Glacial Cortante">Cristal de Gelo Eterno</option>
+                <option value="Roxo Galáctico com brilho de Nebulosa">Roxo Galáctico</option>
+                <option value="Laranja Magma Vulcânico Pulsante">Laranja Magma</option>
+                <option value="Branco Fantasmagórico de Ectoplasma Perolado">Branco Fantasmagórico</option>
+                <option value="Marrom Ferro Enferrujado pelo Tempo">Metal Corroído</option>
+            </select>
+
+            <label for="poder">Poder Oculto:</label>
+            <select id="poder">
+                <option value="cuspir teias venenosas que brilham no escuro">Teia Radiante</option>
+                <option value="abrir pequenos portais dimensionais">Portais Dimensionais</option>
+                <option value="soltar uma fumaça negra misteriosa">Fumaça das Sombras</option>
+                <option value="ter um olhar paralisante e hipnótico">Olhar Hipnótico</option>
+                <option value="disparar fragmentos de cristais sombrios">Gemas da Morte</option>
+                <option value="fritar obstáculos com um olhar de pura energia">Raio Laser Ocular</option>
+                <option value="atordoar inimigos com um rugido hipersônico agudo">Grito Hipersônico</option>
+                <option value="desaparecer em um lugar e surgir em outro instantaneamente">Teletransporte de Sombra</option>
+                <option value="transformar objetos em cinzas com um único toque">Toque de Midas Inverso</option>
+                <option value="refletir qualquer ataque físico com um escudo de espinhos invisíveis">Escudo de Espinhos</option>
+                <option value="invocar um enxame de pequenos ajudantes rastejantes">Invocação de Enxame</option>
+                <option value="lançar chamas frias azuis que nunca se apagam">Sopro de Fogo Azul</option>
+            </select>
+
+            <label for="acessorio">Acessório Radical:</label>
+            <select id="acessorio">
+                <option value="uma Coleira com Espinhos de Prata">Coleira de Espinhos</option>
+                <option value="uma Mini Jaqueta de Couro Preta">Mini Jaqueta de Couro</option>
+                <option value="uma Bandana de Caveirinha">Bandana de Caveira</option>
+                <option value="um Piercing em uma das presas ou antenas">Piercing de Batalha</option>
+                <option value="uma gema pulsante cravada na testa que prevê o futuro">Tiara do Terceiro Olho</option>
+                <option value="uma Cartola de veludo negro que nunca cai da cabeça">Cartola do Mago Sombrio</option>
+                <option value="uma Capa majestosa feita de fios de aranha imortais">Capa de Teia de Prata</option>
+                <option value="uma proteção de metal rúnico em uma das patas">Manopla de Garra</option>
+                <option value="um vidro místico que revela segredos escondidos">Monóculo de Visão Noturna</option>
+                <option value="um acessório que flutua e solta névoa constante">Cachecol de Fumaça</option>
+                <option value="pequenas botinhas que permitem andar no teto">Botas de Gravidade</option>
+                <option value="um cinto cheio de frascos com poções misteriosas">Cinto de Utilidades Alquímicas</option>
+            </select>
+
+        </div>
+
+        <button class="btn-quiz" onclick="gerarFeitico()">Invocar Fórmula! 🔮</button>
+
+        <!-- Resultado do feitiço -->
+        <div id="resultado-feitico" class="resultado-feitico">
+            <p class="titulo-feitico">✨ Feitiço Gerado! ✨</p>
+            <span class="prompt-final" id="textoPrompt"></span>
+            <button class="btn-copiar" onclick="copiarPrompt()">Copiar Feitiço</button>
+            <p class="nota-feitico">Entregue este código ao Mestre dos Magos.</p>
+        </div>
+
+    </main>
+
+    <!-- ===== MODAL: LOGIN ===== -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <h2>Acesso Secreto</h2>
+            <p>Apenas para guardiões de pets.</p>
+            <input type="text" id="inputNome" placeholder="Nome de Guardião">
+            <input type="password" id="inputSenha" placeholder="Senha Mágica">
+            <button class="btn-comprar" onclick="fazerLogin()">Acessar Portal</button>
+            <br><br>
+            <button class="btn-login" onclick="fecharModais()">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

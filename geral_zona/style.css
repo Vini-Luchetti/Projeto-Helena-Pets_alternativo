@@ -1,0 +1,547 @@
+/* =========================================
+   CLUBE DO CORVO — style.css
+   CSS Global. Nenhuma página deve ter <style> interno.
+   ========================================= */
+
+/* --- IMPORTS DE FONTE --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* =========================================
+   VARIÁVEIS GLOBAIS
+   ========================================= */
+:root {
+    --bg-dark:        #080810;
+    --bg-card:        #10101a;
+    --bg-panel:       #1a1a2e;
+    --purple-magic:   #b366ff;
+    --purple-mid:     #8a2be2;
+    --purple-dark:    #4b0082;
+    --purple-deep:    #2d004d;
+    --green-neon:     #00ff88;
+    --text-light:     #e8e0f0;
+    --text-muted:     #9988aa;
+    --border-glow:    rgba(179, 102, 255, 0.4);
+    --neon-glow:      0 0 12px rgba(179, 102, 255, 0.6);
+    --neon-glow-lg:   0 0 30px rgba(179, 102, 255, 0.3);
+
+    --font-title:     'Cinzel Decorative', serif;
+    --font-body:      'Crimson Text', serif;
+}
+
+/* =========================================
+   RESET E BASE
+   ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+/* =========================================
+   TIPOGRAFIA
+   ========================================= */
+h1, h2, h3 {
+    font-family: var(--font-title);
+    letter-spacing: 0.05em;
+}
+
+h1 { font-size: clamp(1.2rem, 3vw, 1.8rem); }
+h2 { font-size: clamp(1.3rem, 3vw, 2rem); margin-bottom: 0.5rem; }
+h3 { font-size: clamp(1rem, 2vw, 1.3rem); margin-bottom: 0.5rem; }
+
+p { color: var(--text-muted); margin-bottom: 0.5rem; }
+
+/* =========================================
+   HEADER E NAVEGAÇÃO
+   ========================================= */
+header {
+    background: rgba(8, 8, 16, 0.96);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-glow);
+    padding: 0 5%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo h1 {
+    color: var(--purple-magic);
+    text-shadow: var(--neon-glow);
+    font-family: var(--font-title);
+    font-size: 1.3rem;
+    cursor: default;
+}
+
+/* Menu Desktop */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.menu a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    transition: color 0.25s, text-shadow 0.25s;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--purple-magic);
+    transition: width 0.25s;
+}
+
+.menu a:hover {
+    color: var(--purple-magic);
+    text-shadow: var(--neon-glow);
+}
+
+.menu a:hover::after { width: 100%; }
+
+/* Botão Login / Nome */
+.btn-login {
+    background: transparent;
+    border: 1px solid var(--purple-magic);
+    color: var(--purple-magic);
+    padding: 7px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.btn-login:hover {
+    background: var(--purple-magic);
+    color: #fff;
+    box-shadow: var(--neon-glow);
+}
+
+/* Saldo de Penas */
+.saldo-container {
+    background: rgba(179, 102, 255, 0.08);
+    border: 1px solid var(--purple-dark);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--purple-magic);
+    white-space: nowrap;
+}
+
+/* Menu Hambúrguer */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.bar {
+    width: 26px;
+    height: 2px;
+    background-color: var(--purple-magic);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Animação X no hamburger ativo */
+.menu-toggle.is-active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =========================================
+   GRID DE CARDS (Pets)
+   ========================================= */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #1e1e30;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--purple-magic);
+    box-shadow: var(--neon-glow-lg);
+}
+
+.pet-img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .pet-img { transform: scale(1.04); }
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-content h3 { color: var(--text-light); }
+
+.preco {
+    color: var(--purple-magic);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* =========================================
+   BOTÕES PRINCIPAIS
+   ========================================= */
+.btn-comprar {
+    background: var(--purple-dark);
+    color: #fff;
+    border: 1px solid var(--purple-mid);
+    padding: 11px 20px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.25s, box-shadow 0.25s;
+    margin-top: 8px;
+}
+
+.btn-comprar:hover {
+    background: var(--purple-mid);
+    box-shadow: var(--neon-glow);
+}
+
+.btn-quiz {
+    background: var(--purple-mid);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    margin: 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+.btn-quiz:hover {
+    background: var(--purple-magic);
+    transform: scale(1.05);
+    box-shadow: var(--neon-glow);
+}
+
+/* =========================================
+   MODAIS
+   ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: var(--bg-panel);
+    padding: 36px 32px;
+    border: 1px solid var(--purple-magic);
+    border-radius: 18px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: var(--neon-glow-lg);
+    animation: modalEntrada 0.3s ease;
+}
+
+@keyframes modalEntrada {
+    from { opacity: 0; transform: scale(0.92) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-content h2 { color: var(--purple-magic); margin-bottom: 12px; }
+.modal-content p  { margin-bottom: 16px; }
+
+.modal-content input {
+    width: 100%;
+    padding: 11px 14px;
+    margin: 8px 0;
+    background: #0d0d18;
+    border: 1px solid var(--purple-dark);
+    color: var(--text-light);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.modal-content input:focus { border-color: var(--purple-magic); }
+
+/* =========================================
+   PAGINAÇÃO
+   ========================================= */
+.paginacao {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 0 50px;
+}
+
+.paginacao a {
+    padding: 9px 18px;
+    background: var(--bg-card);
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #222;
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.paginacao a:hover {
+    background: var(--purple-dark);
+    color: #fff;
+    border-color: var(--purple-mid);
+}
+
+.paginacao a.ativo {
+    background: var(--purple-magic);
+    color: #fff;
+    border-color: var(--purple-magic);
+}
+
+/* =========================================
+   QUIZ (index.html)
+   ========================================= */
+.quiz-container {
+    max-width: 600px;
+    margin: 100px auto 40px;
+    background: var(--bg-panel);
+    padding: 3rem;
+    border-radius: 18px;
+    border: 1px solid var(--purple-mid);
+    text-align: center;
+    box-shadow: var(--neon-glow-lg);
+}
+
+.quiz-container h2 { color: var(--purple-magic); margin-bottom: 12px; }
+
+.pergunta { display: none; }
+
+.pergunta.ativa {
+    display: block;
+    animation: fadeIn 0.45s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.input-quiz {
+    width: 80%;
+    padding: 12px 16px;
+    margin: 16px auto 8px;
+    border-radius: 8px;
+    border: 1px solid var(--purple-dark);
+    background: #0d0d18;
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    text-align: center;
+    display: block;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.input-quiz:focus { border-color: var(--purple-magic); }
+
+/* =========================================
+   CALDEIRÃO (caldeirao.html)
+   ========================================= */
+.caldeirao-container {
+    max-width: 720px;
+    margin: 50px auto 60px;
+    background: var(--bg-panel);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--purple-mid);
+    text-align: center;
+    box-shadow: var(--neon-glow-lg);
+}
+
+.caldeirao-container h2 { color: var(--text-light); margin-bottom: 8px; }
+
+.ingredientes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 24px 0;
+    text-align: left;
+}
+
+.ingredientes label {
+    color: var(--purple-magic);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.ingredientes select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #0d0d18;
+    border: 1px solid var(--purple-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.25s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b366ff' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.ingredientes select:focus { border-color: var(--purple-magic); }
+
+.resultado-feitico {
+    margin-top: 30px;
+    padding: 24px;
+    background: var(--purple-deep);
+    border: 1px dashed var(--purple-magic);
+    border-radius: 12px;
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.resultado-feitico p.titulo-feitico {
+    color: var(--green-neon);
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+}
+
+.prompt-final {
+    font-style: italic;
+    color: #d8bfd8;
+    margin-bottom: 18px;
+    display: block;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.btn-copiar {
+    background: var(--green-neon);
+    color: #080810;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-copiar:hover { opacity: 0.85; transform: scale(1.04); }
+
+.nota-feitico {
+    font-size: 0.8rem;
+    margin-top: 12px;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(8, 8, 16, 0.98);
+        padding: 20px;
+        border-bottom: 1px solid var(--border-glow);
+        gap: 16px;
+    }
+
+    .menu.active { display: flex; }
+
+    .quiz-container  { margin: 80px 16px 40px; padding: 2rem 1.5rem; }
+    .caldeirao-container { margin: 30px 16px 40px; padding: 1.8rem 1.2rem; }
+    .container { padding: 20px 4%; gap: 20px; }
+}

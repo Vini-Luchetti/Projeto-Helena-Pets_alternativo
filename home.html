@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção | Clube do Corvo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">
+            <h1>Clube do Corvo</h1>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <nav class="menu" id="nav-menu">
+            <a href="home.html">Adoção</a>
+            <a href="caldeirao.html">O Caldeirão</a>
+            <a href="contato.html">Contato Sombrio</a>
+            <a href="video.html">Cinemateca do Corvo</a>
+            <button class="btn-login" id="botaoNome" onclick="abrirModal('modalLogin')">Entrar</button>
+            <div class="saldo-container">
+                <span id="saldoPenas">💎 20</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== PETS — PÁGINA 1 ===== -->
+    <main class="container">
+
+        <div class="card">
+            <img src="img/edgar.png" alt="Edgar" class="pet-img">
+            <div class="card-content">
+                <h3>Edgar, o Escorpião Dimensional</h3>
+<p>Com sua bandana de caveirinha e olhos que brilham como reatores, Edgar não apenas guarda o laboratório — ele abre portais para dimensões que você prefere não conhecer. A garra esquerda invoca. A direita decide.</p>
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <button class="btn-comprar" onclick="adotarPet('Edgar', 'img/edgar.png')">Adotar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/nando.png" alt="Nando" class="pet-img">
+            <div class="card-content">
+                <h3>Nando, Filhote do Mundo Invertido</h3>
+<p>Nando saiu do Mundo Invertido de jaqueta de couro e piercings de morceguinho. Sua cara de flor carnívora intimida qualquer um — até você perceber que ele só quer um carinho e um cogumelo bioluminescente.</p>
+
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <button class="btn-comprar" onclick="adotarPet('Nando', 'img/nando.png')">Adotar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/frostbite.jpg" alt="Frostbite" class="pet-img">
+            <div class="card-content">
+                <<h3>Frostbite, a Lagartixa das Botas Arcanas</h3>
+<p>Frostbite usa botas steampunk e tatuagens tribais que brilham no frio. Seu sopro transforma insetos em cristais de gelo que flutuam pelo ar. Já tem plaquinha com o próprio nome no covil — ela sabe exatamente quem é.</p>
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <button class="btn-comprar" onclick="adotarPet('Frostbite', 'img/frostbite.jpg')">Adotar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/pingo.png" alt="Pingo" class="pet-img">
+            <div class="card-content">
+                <h3>Pingo, o Morcego da Meia-Noite</h3>
+<p>Pingo pousa em lápides com elegância e sorriso safado. Suas asas têm veias de roxo neon que pulsam com a lua crescente. O piercing na orelha é detalhe — o que impressiona mesmo é a fumaça roxa que ele sopra quando está de bom humor.</p>
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <<button class="btn-comprar" onclick="adotarPet('Pingo', 'img/pingo.png')">Adotar</button>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/stela.png" alt="Stela" class="pet-img">
+            <div class="card-content">
+                <h3>Stela, a Aranha de Três Olhos</h3>
+<p>Stela tem três olhos violeta que enxergam além do visível, espinhos de prata no abdômen e tatuagens neon que percorrem cada uma das suas oito patas. Ela não assusta — ela deslumbra. Mas é melhor não pisar na teia.</p>
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <button class="btn-comprar" onclick="adotarPet('Stela', 'img/stela.png')">Adotar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/kira.jpg" alt="Kira" class="pet-img">
+            <div class="card-content">
+                <h3>Kira, a Cientista do Fogo Azul</h3>
+<p>Kira usa um monóculo steampunk e dispara raios laser pelo olho esquerdo quando fica curiosa — que é sempre. Seu laboratório tem placas com o próprio nome catalogado. Ela mesma se classificou como Specimen Kira, Mutation V-3. Modéstia zero.</p>
+                <p class="preco">💎 1 Pena de Cristal</p>
+                <button class="btn-comprar" onclick="adotarPet('Kira', 'img/kira.jpg')">Adotar</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ===== PAGINAÇÃO ===== -->
+    <div class="paginacao">
+        <a href="home.html" class="ativo">1</a>
+        <a href="pagina2.html">2</a>
+        <a href="pagina3.html">3</a>
+        <a href="pagina4.html">4</a>
+    </div>
+
+    <!-- ===== MODAL: LOGIN ===== -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <h2>Acesso Secreto</h2>
+            <p>Apenas para guardiões de pets.</p>
+            <input type="text" id="inputNome" placeholder="Nome de Guardião">
+            <input type="password" id="inputSenha" placeholder="Senha Mágica">
+            <button class="btn-comprar" onclick="fazerLogin()">Acessar Portal</button>
+            <br><br>
+            <button class="btn-login" onclick="fecharModais()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: ADOÇÃO CONFIRMADA ===== -->
+    <div id="modalCompra" class="modal">
+        <div class="modal-content">
+            <h2 id="tituloCompra">Ritual de Adoção</h2>
+            <p>O pet está pronto para te seguir pelas sombras!</p>
+            <button class="btn-comprar" onclick="fecharModais()">Concluir Ritual</button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL: RECARGA DE PENAS ===== -->
+    <div id="modalRecarga" class="modal">
+        <div class="modal-content">
+            <h2>O Baú do Corvo</h2>
+            <p>Suas Penas de Cristal acabaram!</p>
+            <div id="bauMagico" onclick="realizarRecarga()" style="font-size:5rem; cursor:pointer; transition: transform 0.2s;">🎁</div>
+            <p>Clique no baú para recarregar.</p>
+            <br>
+            <button class="btn-login" onclick="fecharModais()">Sair</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

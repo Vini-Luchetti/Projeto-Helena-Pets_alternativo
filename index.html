@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ritual de Admissão | Clube do Corvo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+
+        <!-- Pergunta 1: Nome do Guardião -->
+        <div id="p1" class="pergunta ativa">
+            <h2>Bem-vinda ao Clube do Corvo...</h2>
+            <p>Qual é o seu nome de Guardião(ã)?</p>
+            <input type="text" id="nomeUsuario" placeholder="Digite seu nome..." class="input-quiz">
+            <br>
+            <button class="btn-quiz" onclick="guardarNome()">Começar Ritual</button>
+        </div>
+
+        <!-- Pergunta 2: Gosta de pets? -->
+        <div id="p2" class="pergunta">
+            <h2>Saudações!</h2>
+            <p>Você gosta de Pets?</p>
+            <button class="btn-quiz" onclick="proxima('p2', 'p3')">Sim!</button>
+            <button class="btn-quiz" onclick="alert('Talvez você ainda não conheça os nossos... tente de novo!')">Não...</button>
+        </div>
+
+        <!-- Pergunta 3: Pet sombrio e fofo? -->
+        <div id="p3" class="pergunta">
+            <h2>Interessante...</h2>
+            <p>Você quer ter um Pet Sombrio e fofo?</p>
+            <button class="btn-quiz" onclick="proxima('p3', 'p4')">Com certeza!</button>
+            <button class="btn-quiz" onclick="proxima('p3', 'p4')">Tenho curiosidade</button>
+        </div>
+
+        <!-- Pergunta 4: Sabe cuidar de um Corvo Mágico? -->
+        <div id="p4" class="pergunta">
+            <h2>Quase lá...</h2>
+            <p>Você já sabe como cuidar de um Corvo Mágico?</p>
+            <button class="btn-quiz" onclick="finalizar()">Já nasci sabendo!</button>
+            <button class="btn-quiz" onclick="finalizar()">Vou aprender tudo!</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Avança para a próxima pergunta do ritual
+        function proxima(atual, proximaId) {
+            document.getElementById(atual).classList.remove('ativa');
+            document.getElementById(proximaId).classList.add('ativa');
+        }
+
+        // Guarda o nome do guardião e avança
+        function guardarNome() {
+            const nome = document.getElementById('nomeUsuario').value.trim();
+            if (!nome) {
+                alert('Um Guardião precisa de um nome!');
+                return;
+            }
+            localStorage.setItem('nomeDoPet', nome);
+            proxima('p1', 'p2');
+        }
+
+        // Finaliza o ritual e redireciona para a home
+        function finalizar() {
+            const nome = localStorage.getItem('nomeDoPet');
+            alert(`✨ O Oráculo aprovou sua entrada, ${nome}! ✨\nPrepare-se para conhecer seus novos amigos.`);
+            window.location.href = 'home.html';
+        }
+    </script>
+
+</body>
+</html>
